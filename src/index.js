@@ -52,7 +52,7 @@ angular.module('app', [
             preventOpenDuplicates: false,
             target: 'body'
         });
-        
+
         $urlRouterProvider.otherwise('/');
 
         $stateProvider

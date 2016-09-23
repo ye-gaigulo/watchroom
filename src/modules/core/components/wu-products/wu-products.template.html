@@ -1,0 +1,17 @@
+Search for product by id: <input type="text" ng-model="$ctrl.productId"><button ng-click="$ctrl.getProduct()">Search</button>
+<table class="table table-striped table-border" cellspacing=0 width="100%">
+  <thead>
+      <tr>
+        <td>Id</td>
+        <td>Title</td>
+        <td>Body</td>
+      </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="product in $ctrl.products">
+      <td>{{product.id}}</td>
+      <td>{{product.title}}</td>
+      <td>{{product.body}}</td>
+    </tr>
+  </tbody>
+</table>
