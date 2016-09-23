@@ -39,24 +39,43 @@ angular.module('app', [
     .run(($rootScope, $state) => {
         $state.go('index');
     })
-    .config(($stateProvider, $urlRouterProvider) => {
+    .config(($stateProvider, $urlRouterProvider, toastrConfig) => {
         'ngInject';
 
+        angular.extend(toastrConfig, {
+            autoDismiss: true,
+            containerId: 'toast-container',
+            maxOpened: 3,
+            newestOnTop: true,
+            positionClass: 'toast-bottom-right',
+            preventDuplicates: false,
+            preventOpenDuplicates: false,
+            target: 'body'
+        });
+        
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
-        .state('index', {
-            url: '/',
-            template: '<wu-index></wu-index>'
-        })
-        .state('about', {
-            url: '/about',
-            template: '<wu-about></wu-about>'
-        })
-        .state('products', {
-            url: '/products',
-            template: '<wu-products></wu-products>'
-        });
+            .state('index', {
+                url: '/',
+                template: '<wu-index></wu-index>'
+            })
+            .state('about', {
+                url: '/about',
+                template: '<wu-about></wu-about>'
+            })
+            .state('products', {
+                url: '/products',
+                template: '<wu-products></wu-products>'
+            })
+            .state('contact', {
+                url: '/contact',
+                template: '<wu-contact></wu-contact>'
+            })
+            .state('login', {
+                url: '/login',
+                template: '<login></login>'
+            });
     });
 
 angular.element(document).ready(() => {
